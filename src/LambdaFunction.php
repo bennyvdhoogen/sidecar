@@ -107,7 +107,8 @@ abstract class LambdaFunction
      */
     public function prefix()
     {
-        return 'SC-' . config('app.name') . '-' . Sidecar::getEnvironment() . '-';
+        $appSlug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', config('app.name'))));
+        return 'SC-' . $appSlug . '-' . Sidecar::getEnvironment() . '-';
     }
 
     /**
